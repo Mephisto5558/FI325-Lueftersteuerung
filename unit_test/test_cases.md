@@ -1,6 +1,6 @@
-Test-Cases für die Speicherung von Sensordaten
+# Test-Cases für die Speicherung von Sensordaten
 
-Case 1: Sensordaten speichern (Temperatur, Feuchtigkei und Zeitstempel)
+### Case 1: Sensordaten speichern (Temperatur, Feuchtigkeit und Zeitstempel)
 
     Ziel: Überprüfen, ob die Sensordaten korrekt gespeichert werden, wenn Temperatur, Feuchtigkeit und Zeitstempel übergeben werden.
 
@@ -8,7 +8,7 @@ Case 1: Sensordaten speichern (Temperatur, Feuchtigkei und Zeitstempel)
 
     Erwartetes Ergebnis: Daten werden mit korrekten Werten gespeichert.
 
-Case 2: Keine Sensordaten speichern, wenn ungültige Werte übergeben werden
+### Case 2: Keine Sensordaten speichern, wenn ungültige Werte übergeben werden
 
     Ziel: Überprüfen, ob keine Daten gespeichert werden, wenn ungültige Werte übergeben werden.
 
@@ -16,13 +16,11 @@ Case 2: Keine Sensordaten speichern, wenn ungültige Werte übergeben werden
 
     Erwartetes Ergebnis: Keine Daten werden gespeichert.
 
+<br>
 
+# Test-Cases für die Lüfterregelung
 
-
-
-Test-Cases für die Lüfterregelung
-
-Case 3: Lüfter einschalten, wenn die Temperatur über dem Schwellenwert liegt
+### Case 3: Lüfter einschalten, wenn die Temperatur über dem Schwellenwert liegt
 
     Ziel: Überprüfen, ob der Lüfter eingeschaltet wird, wenn die Temperatur über dem definierten Schwellenwert liegt.
 
@@ -30,8 +28,7 @@ Case 3: Lüfter einschalten, wenn die Temperatur über dem Schwellenwert liegt
 
     Erwartetes Ergebnis: Lüfterstatus = True
 
-
-Case 4: Lüfter ausschalten, wenn die Temperatur unter dem Schwellenwert liegt
+### Case 4: Lüfter ausschalten, wenn die Temperatur unter dem Schwellenwert liegt
 
     Ziel: Überprüfen, ob der Lüfter ausgeschaltet wird, wenn die Temperatur unter dem definierten Schwellenwert liegt.
 
@@ -39,11 +36,9 @@ Case 4: Lüfter ausschalten, wenn die Temperatur unter dem Schwellenwert liegt
 
     Erwartetes Ergebnis: Lüfterstatus = False
 
+<br>
 
-
-
-
-Test-Cases für Lüfterregelung und Sensordatenspeicherung zusammen
+# Test-Cases für Lüfterregelung und Sensordatenspeicherung zusammen
 
 Case 5: Lüftersteuerung und Sensordaten speichern basierend auf der Temperatur
 
@@ -53,7 +48,7 @@ Case 5: Lüftersteuerung und Sensordaten speichern basierend auf der Temperatur
 
     Erwartetes Ergebnis: Lüfterstatus = True und die Daten werden korrekt gespeichert.
 
-Case 6: Lüftersteuerung und Sensordaten speichern bei Temperatur unter dem Schwellenwert
+### Case 6: Lüftersteuerung und Sensordaten speichern bei Temperatur unter dem Schwellenwert
 
     Ziel: Überprüfen, ob die Sensordaten korrekt gespeichert und der Lüfter entsprechend der Temperaturregelung ausgeschaltet wird, wenn die Temperatur unter dem Schwellenwert liegt.
 
