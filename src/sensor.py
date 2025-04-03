@@ -10,16 +10,16 @@ PATH_AIR_PRESSURE = path.join(BASE_PATH, 'in_pressure_input')
 
 def get_data():
   """Reads the data from the device"""
-  
+
   with (
-    open(PATH_TEMPERATURE, 'r') as temperature_file
-    , open(PATH_HUMIDITY, 'r') as humidity_file
-    , open(PATH_AIR_PRESSURE, 'r') as air_pressure_file
+    open(PATH_TEMPERATURE, mode='r', encoding='utf-8') as temperature_file
+    , open(PATH_HUMIDITY, mode='r', encoding='utf-8') as humidity_file
+    , open(PATH_AIR_PRESSURE, mode='r', encoding='utf-8') as air_pressure_file
   ):
     temperature = float(temperature_file.read())
     humidity = float(humidity_file.read())
     air_pressure = float(air_pressure_file.read())
-  
+
   return temperature, humidity, air_pressure, datetime.now()
 
 
@@ -28,11 +28,11 @@ def format_data(temperature: float, humidity: float, air_pressure: float, timest
   Returns a list of formatted data.
   :temperature float Temperature in celsius * 1000
   """
-  
-  temperature*=0.001 # conversion
-  humidity*=0.001 # conversion
-  air_pressure*=10 # conversion
-  
+
+  temperature *= 0.001  # conversion
+  humidity *= 0.001  # conversion
+  air_pressure *= 10  # conversion
+
   return [
     f"========== {timestamp.isoformat(timespec='seconds').replace('T', '_ ')} =========="
     , f'Temperatur (Celsius): {temperature:.2f} °C'
@@ -45,16 +45,16 @@ def format_data(temperature: float, humidity: float, air_pressure: float, timest
 
 def main(interval_sec=10):
   """Run infinite loop with an interval"""
-  
+
   while True:
     data = get_data()
     formatted_data = format_data(*data)
-    
+
     for line in formatted_data:
       print(line)
-    
+
     sleep(interval_sec)
-  
+
 
 if __name__ == '__main__':
-  main(*argv[1:])
+  main(*argv[1:]) # pylint: disable=too-many-function-args
