@@ -1,0 +1,20 @@
+[MESSAGES CONTROL]
+disable=
+  multiple-statements,
+  too-many-boolean-expressions,
+  missing-module-docstring,
+  redefined-outer-name,
+  raise-missing-from
+
+indent-string='  '
+max-args=10
+max-attributes=10
+
+[FORMAT]
+max-line-length=140
+variable-rgx=^[a-z_][a-z\d_]{0,30}$
+argument-rgx=^[a-z_][a-z\d_]{0,30}$
+attr-rgx=^[a-z_][a-z\d_]{0,30}$
+
+[VARIABLES]
+redefining-builtins-modules=sys # sys is allowed to redefine builtins e.g. `exit = sys.exit`, `from sys import exit`
