@@ -4,7 +4,8 @@ disable=
   too-many-boolean-expressions,
   missing-module-docstring,
   redefined-outer-name,
-  raise-missing-from
+  raise-missing-from,
+  relative-beyond-top-level
 
 indent-string='  '
 max-args=10
