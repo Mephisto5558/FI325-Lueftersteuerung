@@ -18,14 +18,14 @@ def save(
   """Saves data given to the DB"""
 
   result = cursor.execute(
-      """
+    """
     INSERT INTO messung(sensorID, statusID, timestamp)
     VALUES(:1, :2, :3)
     """, (sensorID, statusID, timestamp.isoformat(timespec='seconds').replace('T', '_ '))
   )
 
   cursor.execute(
-      """"
+    """
     INSERT INTO Messwert(messungID, typID, wert)
     VALUES(:1, :2, :3)
     """, (messungID, typID, wert)
