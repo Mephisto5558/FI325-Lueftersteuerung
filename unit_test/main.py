@@ -1,5 +1,5 @@
 from datetime import datetime
-from sensor import format_data  # Import der Funktion aus der anderen Datei
+from sensor import format_data, calc_data  # Import der Funktion aus der anderen Datei
 
 def test_data_darstellen():
   """Testet, ob format_data korrekte Ausgaben bei gültigen Sensorwerten liefert."""
@@ -7,6 +7,7 @@ def test_data_darstellen():
   feuchtigkeit = 55  # Prozent
   luftdruck = 1013  # hPa
   timestamp = datetime(2025, 3, 27, 12, 8, 50)
+  data = calc_data(temperatur, feuchtigkeit, luftdruck, timestamp)
 
   expected_data = [
     "========== 2025-03-27_ 12:08:50 ==========",
@@ -17,7 +18,7 @@ def test_data_darstellen():
     ""
   ]
 
-  formatted_data = format_data(temperatur, feuchtigkeit, luftdruck, timestamp)
+  formatted_data = format_data(*data)
 
   print("Testfall 1: Sensordaten korrekt darstellen")
   for expected, actual in zip(expected_data, formatted_data):
