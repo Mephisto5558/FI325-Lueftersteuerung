@@ -35,7 +35,8 @@ def test_invalid_data_darstellen():
   timestamp = None
 
   expected_data = []
-  formatted_data = format_data(temperatur, feuchtigkeit, luftdruck, timestamp)
+  data = calc_data(temperatur, feuchtigkeit, luftdruck, timestamp)
+  formatted_data = format_data(*data)
 
   print("Testfall 2: Keine Daten bei ungültigen Werten")
   if formatted_data == expected_data:
