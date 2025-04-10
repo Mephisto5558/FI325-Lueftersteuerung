@@ -4,7 +4,7 @@ from time import sleep
 from datetime import datetime
 from math import exp, log
 
-from .csv_manager import save_to_csv
+from .csv_handler import save_to_csv
 
 CSV_FILEPATH = '../logs/data.csv'
 BASE_PATH = '/sys/bus/iio/devices/iio:device0'

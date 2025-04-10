@@ -5,7 +5,8 @@ disable=
   missing-module-docstring,
   redefined-outer-name,
   raise-missing-from,
-  relative-beyond-top-level
+  relative-beyond-top-level,
+  too-many-positional-arguments
 
 indent-string='  '
 max-args=10
