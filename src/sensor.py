@@ -2,7 +2,9 @@ from os import path
 from sys import argv
 from time import sleep
 from datetime import datetime
+from .db import *
 
+DB_PATH = '%OneDrive%/Documents/Schule/SJ 2/SuD_SP/UnternehmensRechnungen.db' # TODO use param instead of hard coding
 BASE_PATH = '/sys/bus/iio/devices/iio:device0'
 PATH_TEMPERATURE = path.join(BASE_PATH, 'in_temp_input')
 PATH_HUMIDITY = path.join(BASE_PATH, 'in_humidityrelative_input')
@@ -21,7 +23,6 @@ def get_data():
     air_pressure = float(air_pressure_file.read())
 
   return temperature, humidity, air_pressure, datetime.now()
-
 
 def format_data(temperature: float, humidity: float, air_pressure: float, timestamp: datetime) -> list[str]:
   """
@@ -43,8 +44,11 @@ def format_data(temperature: float, humidity: float, air_pressure: float, timest
   ]
 
 
-def main(interval_sec=10):
+def main(interval_sec=10, *data):
   """Run infinite loop with an interval"""
+
+  if data: # support for test data
+    formatted_data = format_data(*data)
 
   while True:
     data = get_data()
