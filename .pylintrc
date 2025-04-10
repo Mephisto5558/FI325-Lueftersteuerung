@@ -6,7 +6,8 @@ disable=
   redefined-outer-name,
   raise-missing-from
 
-indent-string='  '
+# String used as indentation unit. This is usually "    " (4 spaces) or "\t" (1 tab).
+indent-string='    '
 max-args=10
 max-attributes=10
 
