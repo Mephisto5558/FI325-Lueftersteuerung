@@ -67,7 +67,7 @@ def format_data(
   """Returns a list of formatted data."""
 
   return [
-      f"========== {timestamp.isoformat(timespec='seconds').replace('T', '_ ')} ==========",
+      f"========== {timestamp.isoformat(timespec='seconds').replace('T', ' ')} ==========",
       f'Temperatur (Celsius): {temperature_c} °C',
       f'Temperatur (Fahrenheit): {temperature_f} F',
       f'Taupunkt (Celsius): {dew_point_c} °C',

@@ -7,8 +7,9 @@ def save_to_csv(
     humidity: int, air_pressure: int, dew_point_c: float, dew_point_f: float, timestamp: datetime
 ):
   """Write the data to the specified CSV"""
+
   data = dict(  # pylint:disable=use-dict-literal # better readability
-      timestamp=timestamp,
+      timestamp=timestamp.isoformat(timespec='seconds').replace('T', ' '),
       temperature_c=temperature_c,
       temperature_f=temperature_f,
       humidity=humidity,
@@ -17,5 +18,7 @@ def save_to_csv(
       dew_point_f=dew_point_f
   )
 
-  writer = csv.DictWriter(file, delimiter=';', fieldnames=(e for e in data))
+  writer = csv.DictWriter(file, delimiter=';', fieldnames=list(data))
+
+  if file.tell() == 0: writer.writeheader() # write header only if file is empty
   writer.writerow(data)
