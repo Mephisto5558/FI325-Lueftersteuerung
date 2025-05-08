@@ -44,18 +44,15 @@ def calc_data(temperature: float, humidity: float, air_pressure: float, timestam
   air_pressure = int(air_pressure * 10)
 
   # https://www.messpc.de/messpc_formeleditor.php
+  dew_point_pt1 = log(
+      6.1
+      * exp((7.45 * temperature) / (234.67 + temperature) * 2.3025851)
+      * humidity / 100 / 6.1
+  )
+
   dew_point = (
-      234.67 * 0.434292289 * log(
-          6.1
-          * exp((7.45 * temperature) / (234.67 + temperature) * 2.3025851)
-          * humidity / 100 / 6.1
-      )
-  ) / (
-      7.45 - 0.434292289 * log(
-          6.1
-          * exp((7.45 * temperature) / (234.67 + temperature) * 2.3025851)
-          * humidity / 100 / 6.1
-      )
+      (234.67 * 0.434292289 * dew_point_pt1)
+      / (7.45 - 0.434292289 * dew_point_pt1)
   )
 
   dew_point_c = round(dew_point, 2)
