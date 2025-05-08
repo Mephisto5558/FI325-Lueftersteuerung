@@ -26,7 +26,7 @@ def get_data():
 
     temperature = None if temperature is None else float(temperature)
     humidity = None if humidity is None else float(humidity)
-    air_pressure = None if air_pressure is None else float(temperature)
+    air_pressure = None if air_pressure is None else float(air_pressure)
 
   return temperature, humidity, air_pressure, datetime.now()
 
@@ -46,7 +46,7 @@ def calc_data(temperature: float, humidity: float, air_pressure: float, timestam
   # https://www.messpc.de/messpc_formeleditor.php
   dew_point_pt1 = log(
       6.1
-      * exp((7.45 * temperature) / (234.67 + temperature) * 2.3025851)
+      * exp((7.45 * temperature_c) / (234.67 + temperature_c) * 2.3025851)
       * humidity / 100 / 6.1
   )
 
