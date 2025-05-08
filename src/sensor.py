@@ -6,7 +6,7 @@ from math import exp, log
 
 from .csv_handler import save_to_csv
 
-CSV_FILEPATH = '../logs/data.csv'
+CSV_FILEPATH = 'logs/data.csv'
 BASE_PATH = '/sys/bus/iio/devices/iio:device0'
 PATH_TEMPERATURE = path.join(BASE_PATH, 'in_temp_input')
 PATH_HUMIDITY = path.join(BASE_PATH, 'in_humidityrelative_input')
@@ -88,7 +88,7 @@ def main(interval_sec=10):
         + '\n\t`echo "bme280 0x77" > /sys/bus/i2c/devices/i2c-1/new_device` in a root shell.'
     )
 
-  with open(CSV_FILEPATH, mode='r', encoding='utf-8') as csv_file:
+  with open(CSV_FILEPATH, mode='w', encoding='utf-8') as csv_file:
     while True:
       data = calc_data(*get_data())
       save_to_csv(csv_file, *data)
