@@ -71,7 +71,7 @@ def format_data(
       f'Temperatur (Celsius): {temperature_c} °C',
       f'Temperatur (Fahrenheit): {temperature_f} F',
       f'Taupunkt (Celsius): {dew_point_c} °C',
-      f'Taupunkt (Farenheit): {dew_point_f} F',
+      f'Taupunkt (Fahrenheit): {dew_point_f} F',
       f'Luftfeuchte: {humidity} % r.F.',
       f'Luftdruck: {air_pressure} hPa',
       '']
