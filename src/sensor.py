@@ -39,7 +39,7 @@ def calc_data(temperature: float, humidity: float, air_pressure: float, timestam
     )
 
   temperature_c = round(temperature * 0.001, 2)
-  temperature_f = round(temperature * 1.8 + 32, 2)
+  temperature_f = round(temperature * 0.001 * 1.8 + 32, 2)
   humidity = int(humidity * 0.001)
   air_pressure = int(air_pressure * 10)
 
